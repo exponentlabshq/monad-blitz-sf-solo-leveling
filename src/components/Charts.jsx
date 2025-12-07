@@ -26,10 +26,10 @@ ChartJS.register(
     Filler
 );
 
-// Update chart defaults for Dark Mode
-ChartJS.defaults.color = '#A1A1AA';
-ChartJS.defaults.borderColor = '#27272A';
-ChartJS.defaults.scale.grid.color = '#27272A';
+// Update chart defaults for Light Mode
+ChartJS.defaults.color = '#52525B';
+ChartJS.defaults.borderColor = '#E4E4E7';
+ChartJS.defaults.scale.grid.color = '#E4E4E7';
 ChartJS.defaults.font.family = 'Inter';
 
 export function TopicInfluenceChart({ data }) {
@@ -61,11 +61,11 @@ export function TopicInfluenceChart({ data }) {
                 display: true,
                 text: 'Topic Influence Distribution',
                 font: { family: 'Inter', size: 16, weight: 'bold' },
-                color: '#FAFAFA'
+                color: '#1B1D21'
             }
         },
         scales: {
-            y: { beginAtZero: true, grid: { color: '#27272A' } },
+            y: { beginAtZero: true, grid: { color: '#E4E4E7' } },
             x: { grid: { display: false } }
         }
     };
@@ -82,8 +82,8 @@ export function NetworkConnectionsChart({ data }) {
         datasets: [{
             label: 'Interactions',
             data: topConnections.map(c => c.count || 0),
-            backgroundColor: 'rgba(133, 230, 255, 0.8)',
-            borderColor: '#85E6FF',
+            backgroundColor: 'rgba(14, 165, 233, 0.8)', /* Cyan updated for light mode */
+            borderColor: '#0EA5E9',
             borderWidth: 1,
             borderRadius: 4
         }]
@@ -104,13 +104,13 @@ export function NetworkConnectionsChart({ data }) {
                 display: true,
                 text: 'Top Network Connections',
                 font: { family: 'Inter', size: 16, weight: 'bold' },
-                color: '#FAFAFA'
+                color: '#1B1D21'
             }
         },
         scales: {
             y: {
                 ticks: {
-                    color: '#A1A1AA',
+                    color: '#52525B',
                     callback: function (value, index) {
                         const label = this.getLabelForValue(value);
                         return label.length > 15 ? label.substring(0, 15) + '...' : label;
@@ -118,7 +118,7 @@ export function NetworkConnectionsChart({ data }) {
                 },
                 grid: { display: false }
             },
-            x: { grid: { color: '#27272A' } }
+            x: { grid: { color: '#E4E4E7' } }
         }
     };
 
@@ -153,8 +153,8 @@ export function TimeSeriesChart({ data }) {
             {
                 label: 'Active Posts',
                 data: postsActive,
-                borderColor: '#85E6FF',
-                backgroundColor: 'rgba(133, 230, 255, 0.1)',
+                borderColor: '#0EA5E9',
+                backgroundColor: 'rgba(14, 165, 233, 0.1)',
                 tension: 0.4,
                 fill: true,
                 yAxisID: 'y1'
@@ -171,30 +171,30 @@ export function TimeSeriesChart({ data }) {
             easing: 'easeOutQuart'
         },
         plugins: {
-            legend: { position: 'top', labels: { color: '#FAFAFA' } },
+            legend: { position: 'top', labels: { color: '#1B1D21' } },
             title: {
                 display: true,
                 text: 'Engagement Trends Over Time',
                 font: { family: 'Inter', size: 16, weight: 'bold' },
-                color: '#FAFAFA'
+                color: '#1B1D21'
             }
         },
         scales: {
             y: {
                 position: 'left',
-                title: { display: true, text: 'Interactions', color: '#A1A1AA' },
-                grid: { color: '#27272A' },
-                ticks: { color: '#A1A1AA' }
+                title: { display: true, text: 'Interactions', color: '#52525B' },
+                grid: { color: '#E4E4E7' },
+                ticks: { color: '#52525B' }
             },
             y1: {
                 position: 'right',
                 grid: { drawOnChartArea: false },
-                title: { display: true, text: 'Active Posts', color: '#A1A1AA' },
-                ticks: { color: '#A1A1AA' }
+                title: { display: true, text: 'Active Posts', color: '#52525B' },
+                ticks: { color: '#52525B' }
             },
             x: {
                 grid: { display: false },
-                ticks: { color: '#A1A1AA' }
+                ticks: { color: '#52525B' }
             }
         }
     };
@@ -216,8 +216,8 @@ export function EngagementMetricsChart({ data }) {
             ],
             backgroundColor: [
                 'rgba(110, 84, 255, 0.8)',
-                '#85E6FF',
-                '#FFAE45',
+                '#0EA5E9',
+                '#F59E0B',
                 '#DDD7FE'
             ],
             borderWidth: 0,
@@ -234,12 +234,12 @@ export function EngagementMetricsChart({ data }) {
             duration: 2000
         },
         plugins: {
-            legend: { position: 'right', labels: { color: '#FAFAFA' } },
+            legend: { position: 'right', labels: { color: '#1B1D21' } },
             title: {
                 display: true,
                 text: 'Engagement Metrics Breakdown',
                 font: { family: 'Inter', size: 16, weight: 'bold' },
-                color: '#FAFAFA'
+                color: '#1B1D21'
             }
         }
     };

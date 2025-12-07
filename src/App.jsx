@@ -84,7 +84,7 @@ function App() {
     const { data, isLoading, error, loadingMessage, analyze } = useAnalysis();
 
     return (
-        <CopilotKit runtimeUrl="http://localhost:4000/copilotkit">
+        <CopilotKit publicApiKey={import.meta.env.VITE_COPILOTKIT_PUBLIC_KEY}>
             <Router>
                 <div className="app-container">
                     <Navbar />
